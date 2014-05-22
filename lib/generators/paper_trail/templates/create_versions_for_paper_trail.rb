@@ -1,6 +1,6 @@
-class CreateVersions < ActiveRecord::Migration
+class CreateVersionsForPaperTrail < ActiveRecord::Migration
   def change
-    create_table :versions do |t|
+    create_table :versions_for_paper_trail do |t|
       t.string   :item_type, :null => false
       t.integer  :item_id,   :null => false
       t.string   :event,     :null => false
@@ -8,6 +8,6 @@ class CreateVersions < ActiveRecord::Migration
       t.text     :object
       t.datetime :created_at
     end
-    add_index :versions, [:item_type, :item_id]
+    add_index :versions_for_paper_trail, [:item_type, :item_id]
   end
 end

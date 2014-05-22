@@ -15,7 +15,7 @@ class SetUpTestTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :versions, :force => true do |t|
+    create_table :versions_for_paper_trail, :force => true do |t|
       t.string   :item_type, :null => false
       t.integer  :item_id,   :null => false
       t.string   :event,     :null => false
@@ -35,7 +35,7 @@ class SetUpTestTables < ActiveRecord::Migration
       t.string :ip
       t.string :user_agent
     end
-    add_index :versions, [:item_type, :item_id]
+    add_index :versions_for_paper_trail, [:item_type, :item_id]
 
     create_table :post_versions, :force => true do |t|
       t.string   :item_type, :null => false
@@ -100,7 +100,7 @@ class SetUpTestTables < ActiveRecord::Migration
     create_table :documents, :force => true do |t|
       t.string :name
     end
-    
+
     create_table :legacy_widgets, :force => true do |t|
       t.string    :name
       t.integer   :version

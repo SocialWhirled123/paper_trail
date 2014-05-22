@@ -214,8 +214,8 @@ class HasPaperTrailModelTest < ActiveSupport::TestCase
 
       should 'have changes' do
 
-        #TODO Postgres does not appear to pass back ActiveSupport::TimeWithZone, 
-        # so chosing the lowest common denominator to test. 
+        #TODO Postgres does not appear to pass back ActiveSupport::TimeWithZone,
+        # so chosing the lowest common denominator to test.
 
         changes = {
           'name'       => [nil, 'Henry'],
@@ -442,7 +442,7 @@ class HasPaperTrailModelTest < ActiveSupport::TestCase
         @last = @widget.versions.last
       end
 
-      teardown do 
+      teardown do
         restore_schema
       end
 

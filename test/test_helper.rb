@@ -47,7 +47,7 @@ def change_schema
   ActiveRecord::Migration.verbose = false
   ActiveRecord::Schema.define do
     remove_column :widgets, :sacrificial_column
-    add_column :versions, :custom_created_at, :datetime
+    add_column :versions_for_paper_trail, :custom_created_at, :datetime
   end
   ActiveRecord::Migration.verbose = true
   reset_version_class_column_info!
@@ -57,7 +57,7 @@ def restore_schema
   ActiveRecord::Migration.verbose = false
   ActiveRecord::Schema.define do
     add_column :widgets, :sacrificial_column, :string
-    remove_column :versions, :custom_created_at
+    remove_column :versions_for_paper_trail, :custom_created_at
   end
   ActiveRecord::Migration.verbose = true
   reset_version_class_column_info!

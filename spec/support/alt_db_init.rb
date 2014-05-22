@@ -25,6 +25,7 @@ module Foo
   end
 
   class Version < Base
+    self.table_name = 'versions_for_paper_trail'
     include PaperTrail::VersionConcern
   end
 
@@ -44,6 +45,7 @@ module Bar
   end
 
   class Version < Base
+    self.table_name = 'versions_for_paper_trail'
     include PaperTrail::VersionConcern
   end
 

@@ -13,15 +13,15 @@ describe PaperTrail::InstallGenerator, :type => :generator do
       prepare_destination
       run_generator
     end
-  
+
     it "generates a migration for creating the 'versions' table" do
       destination_root.should have_structure {
         directory 'db' do
           directory 'migrate' do
-            migration 'create_versions' do
-              contains 'class CreateVersions'
+            migration 'create_versions_for_paper_trail' do
+              contains 'class CreateVersionsForPaperTrail'
               contains 'def change'
-              contains 'create_table :versions do |t|'
+              contains 'create_table :versions_for_paper_trail do |t|'
             end
           end
         end
@@ -39,10 +39,10 @@ describe PaperTrail::InstallGenerator, :type => :generator do
       destination_root.should have_structure {
         directory 'db' do
           directory 'migrate' do
-            migration 'create_versions' do
+            migration 'create_versions_for_paper_trail' do
               contains 'class CreateVersions'
               contains 'def change'
-              contains 'create_table :versions do |t|'
+              contains 'create_table :versions_for_paper_trail do |t|'
             end
           end
         end
@@ -56,7 +56,7 @@ describe PaperTrail::InstallGenerator, :type => :generator do
             migration 'add_object_changes_to_versions' do
               contains 'class AddObjectChangesToVersions'
               contains 'def change'
-              contains 'add_column :versions, :object_changes, :text'
+              contains 'add_column :versions_for_paper_trail, :object_changes, :text'
             end
           end
         end
